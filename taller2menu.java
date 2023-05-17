@@ -41,7 +41,7 @@ public class taller2menu {
                                 System.out.println("Introduzca el tercer lado");
                                 lado3=Float.parseFloat(leer.readLine());
                                     }
-                                else if (lado1!=0 && lado2!=0 && lado3!=0){
+                                else if (lado1!=0 && lado2!=0 && lado3!=0){//El O no es un valor valido para ninguno de los lados
                                 perimetro=lado1+lado2+lado3;    
                                 area = Math.sqrt((perimetro/2)*((perimetro/2)-lado1)*((perimetro/2)-lado2)*((perimetro/2)-lado3));   
                                 
