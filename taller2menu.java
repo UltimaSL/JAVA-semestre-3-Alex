@@ -1,6 +1,6 @@
 import java.io.*;
 import java.text.DecimalFormat;
-
+//en repositorio de github
 public class taller2menu {
     public static void main(String[] args) throws Exception{
         
