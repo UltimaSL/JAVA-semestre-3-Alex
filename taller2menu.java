@@ -2,7 +2,7 @@ import java.io.*;
 import java.text.DecimalFormat;
 //en repositorio de github
 public class taller2menu {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         
         boolean ciclo1=true;
         boolean ciclo2=true;
@@ -17,7 +17,7 @@ public class taller2menu {
 
             try {//ciclo para controlar el menu
                 while(ciclo1){
-                    System.out.println("que figura va a calcular?\n1.Triangulo\n2.Ciculo\n3.cuadrado");
+                    System.out.println("que figura va a calcular?\n1.Triangulo\n2.Ciculo\n3.cuadrado\n4.Salir del programa");
                     int option=Integer.parseInt(leer.readLine());
                     if (option==1) {//Calculos del p y a del triangulo
 
@@ -41,28 +41,29 @@ public class taller2menu {
                                 System.out.println("Introduzca el tercer lado");
                                 lado3=Float.parseFloat(leer.readLine());
                                     }
+                                else if (lado1!=0 && lado2!=0 && lado3!=0){
+                                perimetro=lado1+lado2+lado3;    
+                                area = Math.sqrt((perimetro/2)*((perimetro/2)-lado1)*((perimetro/2)-lado2)*((perimetro/2)-lado3));   
                                 
-                                perimetro=lado1+lado2+lado3; 
-        
-                                area = Math.sqrt((perimetro/2)*((perimetro/2)-lado1)*((perimetro/2)-lado2)*((perimetro/2)-lado3));
-                                
-                                System.out.println("El perimetro es:"+format1.format(perimetro)+"\nEl area es:"+format1.format(area));
-                                if (lado1!=0 && lado2!=0 && lado3!=0) {
-                                    ciclo2=false;
+                                System.out.println("El perimetro es:"+format1.format(perimetro)+"\nEl area es:"+format1.format(area)+"\n\n");
+                                ciclo2=false; 
                                 }
+                                
                                     
-                                } catch (Exception e) {
+                                } catch (Exception e ) {//recoger los posibles errores
         
                                     if(lado1==0){
-                                        System.out.println("***Error no se a ingresado un numero en el lado 1***");
+                                        System.out.println("***Error no se a ingresado un numero o el valor ingresado fue cero en el lado 1***");
                                     }
                                     else if(lado2==0){
-                                        System.out.println("***Error no se a ingresado un numero en el lado 2***");
+                                        System.out.println("***Error no se a ingresado un numero o el valor ingresado fue cero en el lado 2***");
                                     }
                                     else if(lado3==0){
-                                        System.out.println("***Error no se a ingresado un numero en el lado 3***");
+                                        System.out.println("***Error no se a ingresado un numero o el valor ingresado fue cero en el lado 3***");
                                     }
+                                    
                                     // TODO: handle exception
+
                                 }
                             
                         }//finish loop triangles
@@ -70,12 +71,21 @@ public class taller2menu {
                     }//finish if opcion1(triangulo)
 
                     else if(option==2){//Calculos del p y a del circulo
-                        System.out.println("Introduzca el radio");
-                        lado1=Float.parseFloat(leer.readLine());
-                        perimetro=(2*lado1)*Math.PI;
-                        area=Math.PI*(lado1*lado1);
+                        while (ciclo2) {
+                            try {
+                                System.out.println("Introduzca el radio");
+                                lado1=Float.parseFloat(leer.readLine());
+                                perimetro=(2*lado1)*Math.PI;
+                                area=Math.PI*(lado1*lado1);
 
-                        System.out.println("El perimetro es:"+format1.format(perimetro)+"\nEl area es:"+format1.format(area));
+                                System.out.println("El perimetro es:"+format1.format(perimetro)+"\nEl area es:"+format1.format(area));
+                                
+                            } catch (Exception e) {
+                                // TODO: handle exception
+                            }
+                            
+                        }
+                        
                     }
                     else if(option==3){//Calculos del p y a del cuadrado
                         System.out.println("Introduzca la base");
@@ -87,10 +97,13 @@ public class taller2menu {
 
                         System.out.println("El perimetro es:"+format1.format(perimetro)+"\nEl area es:"+format1.format(area));
                     }
-                    System.out.println("Si desea salir del programa?\nIntroduzca EXIT");
-                    String option2=leer.readLine();
-                    if(option2.equals("EXIT"))//salir del programa
-                        ciclo1=false;
+                    else if (option==4) {
+                        System.out.println("Si desea salir del programa?\nIntroduzca EXIT\nCaso contrario pulse cualquier tecla");
+                        String option2=leer.readLine();
+                        if(option2.equals("EXIT"))//salir del programa
+                        ciclo1=false;  
+                    }
+                    
                 }
 
                 
