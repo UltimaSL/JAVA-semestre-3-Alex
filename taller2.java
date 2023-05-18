@@ -80,7 +80,7 @@ public class taller2 {
         }//fin ciclo 
     }//fin main
 
-    public static float valor(String mensaje) {//funcio para errores, solo se admiten numeros reales
+    static float valor(String mensaje) {//funcio para errores, solo se admiten numeros reales
 
         BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
         try {
