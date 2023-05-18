@@ -2,13 +2,13 @@ import java.io.*;
 import java.text.DecimalFormat;
 
 //en repositorio de github
-public class taller2menuv2 {
+public class taller2 {
     public static void main(String[] args) throws Exception {
 
         boolean ciclo1 = true;
-        float lado1 = 0;
-        float lado2 = 0;
-        float lado3 = 0;
+        float lado1;
+        float lado2;
+        float lado3;
         double perimetro;
         double area;
 
@@ -16,14 +16,18 @@ public class taller2menuv2 {
         BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
 
         while (ciclo1) {
-                Float option = valor("que figura va a calcular?\n1.Triangulo\n2.Ciculo\n3.rectangulo\n4.Salir del programa\n");
-
+            try {
+                System.out.println("que figura va a calcular?\n1.Triangulo\n2.Ciculo\n3.cuadrado\n4.Salir del programa");
+                int option=Integer.parseInt(leer.readLine());
+                
                 if (option == 1) // Calculos del p y a del triangulo
                 {
-                    //lectura de variables
+                    //lectura de variables2
+                    
                     lado1 = valor("Introduzca el lado 1");
                     lado2 = valor("Introduzca el lado 2");
                     lado3 = valor("Introduzca el lado 3");
+
 
                     //operaciones arimeticas 
                     perimetro = lado1 + lado2 + lado3;
@@ -65,6 +69,10 @@ public class taller2menuv2 {
                     ciclo1=false;  
                     }
                 }
+            } catch (Exception e) {
+                System.out.println("\nOpcion invalida\n");
+            }
+                
 
             } 
         }
@@ -79,9 +87,5 @@ public class taller2menuv2 {
             System.out.println("\nIngrese un valor valido\n");
             return valor(mensaje);
         }
-
     }
-
 }
-    
-
