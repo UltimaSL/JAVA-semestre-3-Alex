@@ -69,13 +69,16 @@ public class taller2 {
                     ciclo1=false;  
                     }
                 }
+                else{
+                    System.out.println("\nOpcion invalida\n");
+                }
             } catch (Exception e) {
                 System.out.println("\nOpcion invalida\n");
             }
                 
 
-            } 
-        }
+        }//fin ciclo 
+    }//fin main
 
     public static float valor(String mensaje) {//funcio para errores, solo se admiten numeros reales
 
